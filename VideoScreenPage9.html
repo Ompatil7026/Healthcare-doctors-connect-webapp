@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call and Chatbox</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #e3eff7);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .btn-toggle {
+            margin: 10px 0;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .frame {
+            border: 2px solid #0073e6;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .frame.hidden {
+            display: none;
+        }
+
+        .chatbox {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chatbox-messages {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .chatbox-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chatbox-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .chatbox-input button {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .chatbox-input button:hover {
+            background-color: #005bb5;
+        }
+
+        .video-frame {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-frame video {
+            width: 100%;
+            max-height: 300px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Communication Options</h1>
+
+    <!-- Buttons to toggle views -->
+    <div class="btn-toggle">
+        <button id="video-call-btn" class="btn btn-primary">Video Call</button>
+        <button id="text-message-btn" class="btn btn-secondary">Text Message</button>
+    </div>
+
+    <!-- Video Call Frame -->
+    <div id="video-call-frame" class="frame hidden">
+        <div class="video-frame">
+            <video autoplay muted></video>
+            <p>Video call in progress...</p>
+        </div>
+    </div>
+
+    <!-- Chatbox Frame -->
+    <div id="chatbox-frame" class="frame hidden">
+        <div class="chatbox">
+            <div class="chatbox-messages">
+                <p><strong>Dr. John:</strong> Hello! How can I assist you today?</p>
+                <p><strong>You:</strong> I have some questions about my case.</p>
+            </div>
+            <div class="chatbox-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get buttons and frames
+    const videoCallBtn = document.getElementById('video-call-btn');
+    const textMessageBtn = document.getElementById('text-message-btn');
+    const videoCallFrame = document.getElementById('video-call-frame');
+    const chatboxFrame = document.getElementById('chatbox-frame');
+
+    // Event listeners for buttons
+    videoCallBtn.addEventListener('click', () => {
+        videoCallFrame.classList.remove('hidden');
+        chatboxFrame.classList.add('hidden');
+    });
+
+    textMessageBtn.addEventListener('click', () => {
+        chatboxFrame.classList.remove('hidden');
+        videoCallFrame.classList.add('hidden');
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

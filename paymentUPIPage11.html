@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .upi-options {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .upi-option {
+            text-align: center;
+            cursor: pointer;
+        }
+        .upi-option img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cancel {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .pay-now {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    <script>
+        function selectProvider(provider) {
+            document.getElementById("upi-provider").value = provider;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>UPI Payments</h1>
+        <form action="process_upi_payment.php" method="POST">
+            <div class="input-group">
+                <label for="user_name">Full Name</label>
+                <input type="text" id="user_name" name="user_name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="upi_id">UPI ID</label>
+                <input type="text" id="upi_id" name="upi_id" placeholder="Enter your UPI ID" required>
+            </div>
+
+            <div class="input-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" step="0.01" required>
+            </div>
+
+            <div class="input-group">
+                <label for="upi-provider">UPI Provider</label>
+                <input type="text" id="upi-provider" name="upi_provider" placeholder="Select provider" readonly required>
+            </div>
+
+            <div class="input-group">
+                <label for="transaction_status">Transaction Status</label>
+                <select id="transaction_status" name="transaction_status" required>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Failed">Failed</option>
+                </select>
+            </div>
+
+            <div class="upi-options">
+                <div class="upi-option" onclick="selectProvider('Google Pay')">
+                    <img src="google-pay-logo.png" alt="Google Pay">
+                    <p>Google Pay</p>
+                </div>
+                <div class="upi-option" onclick="selectProvider('PhonePe')">
+                    <img src="phonepe-logo.png" alt="PhonePe">
+                    <p>PhonePe</p>
+                </div>
+                <div class="upi-option" onclick="selectProvider('Paytm')">
+                    <img src="paytm-logo.png" alt="Paytm">
+                    <p>Paytm</p>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="cancel">Cancel</button>
+                <button type="submit" class="pay-now">Pay Now</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

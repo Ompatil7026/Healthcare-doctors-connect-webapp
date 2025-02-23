@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Surgeons Grid</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #e3eff7);
+            padding: 20px;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+        }
+
+        
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        .search-box input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+            outline: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            background: #0073e6;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #005bb5;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            color: white;
+            text-align: center;
+        }
+
+        .card:nth-child(1) { background: #f28b82; }
+        .card:nth-child(2) { background: #fbbc04; }
+        .card:nth-child(3) { background: #34a853; }
+        .card:nth-child(4) { background: #4285f4; }
+        .card:nth-child(5) { background: #ea4335; }
+        .card:nth-child(6) { background: #ff7043; }
+        .card:nth-child(7) { background: #26c6da; }
+        .card:nth-child(8) { background: #ab47bc; }
+        .card:nth-child(9) { background: #ffee58; }
+        .card:nth-child(10) { background: #8d6e63; }
+        .card:nth-child(11) { background: #9ccc65; }
+        .card:nth-child(12) { background: #7e57c2; }
+        .card:nth-child(13) { background: #26a69a; }
+        .card:nth-child(14) { background: #5c6bc0; }
+        .card:nth-child(15) { background: #ef5350; }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 1.5px solid black;
+        }
+
+        .card-content {
+            flex: 1;
+            margin-top: -5px;
+            margin-bottom: 15px;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .card-content .speciality {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="p-3 mb-3 border-bottom sticky-top bg-white shadow-sm" style="border-radius: 10px;">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+                    <img src="doctorlogo.png" alt="Your Brand Logo" width="40" height="40" class="me-2" style="border: 1.5px solid black; border-radius: 50%;">
+                </a>
+    
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
+                    <li><a href="#" class="nav-link px-2 link-body-emphasis">Inventory</a></li>
+                    <li><a href="#" class="nav-link px-2 link-body-emphasis">Customers</a></li>
+                    <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
+                </ul>
+    
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </form>
+    
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="profilepic.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small">
+                        <li><a class="dropdown-item" href="#">User name</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="PersonalInfoPage10.html">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main content -->
+    <div class="header">
+        <h1>Meet Our Expert Surgeons</h1>
+        <p>Specialists in different fields of surgery to provide the best care for critical cases.</p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search by location">
+        <input type="text" placeholder="Search specialist">
+        <button>Search</button>
+    </div>
+
+    <div class="grid-container">
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Trauma Surgery</h3>
+                <p>Expert in trauma and emergency surgery with 10+ years of experience.</p>
+                <span class="speciality"><a href="doctorslistPage5.html">Trauma Surgery</span></a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Cardiovascular Surgery</h3>
+                <p>Specialist in cardiovascular surgeries, saving countless lives.</p>
+                <span class="speciality">Cardiovascular Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Neurological Surgery</h3>
+                <p>Renowned for expertise in neurological surgery and patient care.</p>
+                <span class="speciality">Neurological Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Orthopedic Surgery</h3>
+                <p>Highly experienced in orthopedic surgeries with a passion for healing.</p>
+                <span class="speciality">Orthopedic Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Pediatric Surgery</h3>
+                <p>Specialist in pediatric surgery, dedicated to improving children's health.</p>
+                <span class="speciality">Pediatric Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Laparoscopic Surgery</h3>
+                <p>Renowned for minimally invasive laparoscopic surgeries.</p>
+                <span class="speciality">Laparoscopic Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Plastic Surgery</h3>
+                <p>Highly skilled in plastic and reconstructive surgeries.</p>
+                <span class="speciality">Plastic Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Dental Surgery</h3>
+                <p>Specialist in dental and maxillofacial surgeries.</p>
+                <span class="speciality">Dental Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Transplant Surgery</h3>
+                <p>Expert in organ transplantation and critical care surgeries.</p>
+                <span class="speciality">Transplant Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>General Surgery</h3>
+                <p>Specialist in general surgeries with a focus on patient well-being.</p>
+                <span class="speciality">General Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Bariatric Surgery</h3>
+                <p>Renowned for expertise in bariatric surgeries for weight management.</p>
+                <span class="speciality">Bariatric Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Brain Surgery</h3>
+                <p>Experienced in advanced brain surgeries and neuroscience research.</p>
+                <span class="speciality">Brain Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Vascular Surgery</h3>
+                <p>Renowned for precision in vascular and vein surgeries.</p>
+                <span class="speciality">Vascular Surgery</span>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Radiology</h3>
+                <p>Expert in trauma and emergency surgery with 10+ years of experience.</p>
+                <span class="speciality">Radiologist</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Cardiology</h3>
+                <p>Specialist in interventional cardiology and heart health.</p>
+                <span class="speciality">Cardiology</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Navbar -->
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3">
+            <a href="#" class="text-body-secondary">
+                <img src="twitter.png" alt="Twitter" width="24" height="24" style="border-radius: 50%;">
+            </a>
+        </li>
+        <li class="ms-3">
+            <a href="#" class="text-body-secondary">
+                <img src="instagramlogo.png" alt="Instagram" width="24" height="24" style="border-radius: 50%;">
+            </a>
+        </li>
+        <li class="ms-3">
+            <a href="#" class="text-body-secondary">
+                <img src="fblogo.png" alt="Facebook" width="24" height="24" style="border-radius: 50%;">
+            </a>
+        </li>
+    </ul>
+    
+    </footer>
+
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
