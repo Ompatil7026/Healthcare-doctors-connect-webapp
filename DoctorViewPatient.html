@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Patients</title>
+    <style>
+        body {
+            background: #F8FAFC; /* Light Background */
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2A4D69; /* Dark Blue */
+            font-size: 28px;
+        }
+
+        /* Category Buttons */
+        .category-container {
+            margin-bottom: 20px;
+        }
+
+        .category {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #A7D7C5; /* Soft Green */
+            color: #333;
+            border-radius: 5px;
+            margin: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .category:hover {
+            background: #89C4A7;
+            color: white;
+        }
+
+        /* Patient Cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .card {
+            background: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #FFD700; /* Soft Gold */
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .btn-view {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: #FFD580; /* Pastel Yellow */
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .btn-view:hover {
+            background: #FFC04D;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>View Patients</h1>
+
+    <!-- Category Buttons -->
+    <div class="category-container">
+        <a href="#" class="category">All</a>
+        <a href="#" class="category">Emergency</a>
+        <a href="#" class="category">In-Patients</a>
+        <a href="#" class="category">Out-Patients</a>
+    </div>
+
+    <!-- Patient Grid -->
+    <div class="grid-container">
+        <div class="card">
+            <img src="PhotosAll/profilepicpatient.png" alt="Patient">
+            <h3>John Doe</h3>
+            <p>Age: 45 | Condition: Heart Attack</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+        <div class="card">
+            <img src="PhotosAll/girl.png" alt="Patient">
+            <h3>Jane Smith</h3>
+            <p>Age: 32 | Condition: Surgery Recovery</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+        <div class="card">
+            <img src="PhotosAll/boy.png" alt="Patient">
+            <h3>Michael Brown</h3>
+            <p>Age: 50 | Condition: Routine Checkup</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+        <div class="card">
+            <img src="PhotosAll/woman.png" alt="Patient">
+            <h3>John Doe</h3>
+            <p>Age: 45 | Condition: Heart Attack</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+        <div class="card">
+            <img src="PhotosAll/profilepicpatient.png" alt="Patient">
+            <h3>John Doe</h3>
+            <p>Age: 45 | Condition: Heart Attack</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+        <div class="card">
+            <img src="PhotosAll/girl.png" alt="Patient">
+            <h3>Jane Smith</h3>
+            <p>Age: 32 | Condition: Surgery Recovery</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+        <div class="card">
+            <img src="PhotosAll/boy.png" alt="Patient">
+            <h3>Michael Brown</h3>
+            <p>Age: 50 | Condition: Routine Checkup</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+        <div class="card">
+            <img src="PhotosAll/woman.png" alt="Patient">
+            <h3>John Doe</h3>
+            <p>Age: 45 | Condition: Heart Attack</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+        <div class="card">
+            <img src="PhotosAll/profilepicpatient.png" alt="Patient">
+            <h3>John Doe</h3>
+            <p>Age: 45 | Condition: Heart Attack</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+        <div class="card">
+            <img src="PhotosAll/girl.png" alt="Patient">
+            <h3>Jane Smith</h3>
+            <p>Age: 32 | Condition: Surgery Recovery</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+        <div class="card">
+            <img src="PhotosAll/boy.png" alt="Patient">
+            <h3>Michael Brown</h3>
+            <p>Age: 50 | Condition: Routine Checkup</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+        <div class="card">
+            <img src="PhotosAll/woman.png" alt="Patient">
+            <h3>John Doe</h3>
+            <p>Age: 45 | Condition: Heart Attack</p>
+            <a href="PatientReports4.html" class="btn-view">View Details</a>
+        </div>
+    </div>
+
+</body>
+</html>

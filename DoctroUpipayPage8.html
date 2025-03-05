@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #333;
+        }
+        .payment-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        .payment-container h1 {
+            text-align: center;
+            color: #6e8efb;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .upi-options {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .upi-options div {
+            text-align: center;
+        }
+        .upi-options img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 5px;
+            border: 2px solid transparent;
+            transition: 0.3s ease;
+        }
+        .upi-options img:hover {
+            border-color: #6e8efb;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button-group button {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .cancel {
+            background: #f44336;
+            color: #fff;
+        }
+        .pay-now {
+            background: #6e8efb;
+            color: #fff;
+        }
+        .cancel:hover {
+            background: #d32f2f;
+        }
+        .pay-now:hover {
+            background: #5b74e8;
+        }
+
+        .cancel,.pay-now {
+            padding-top: 15px;
+            padding-right: 10px;
+            padding-left: 10px;
+            font-size: 1rem;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 10px;
+            display: inline-block;
+            width: 150px;
+            height: 40px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h1>UPI Payment</h1>
+        <form>
+            <!-- UPI ID Input -->
+            <div class="form-group">
+                <label for="upi-id">Enter your UPI ID</label>
+                <input type="text" id="upi-id" name="upi-id" placeholder="e.g., yourname@upi" required>
+            </div>
+
+            <!-- Quick UPI Options -->
+            <div class="upi-options">
+                <div>
+                    <img src="PhotosAll/googlelogo.png" alt="Google Pay">
+                    <p>Google Pay</p>
+                </div>
+                <div>
+                    <img src="PhotosAll/phonepe.png" alt="PhonePe">
+                    <p>PhonePe</p>
+                </div>
+                <div>
+                    <img src="PhotosAll/paytm.png" alt="Paytm">
+                    <p>Paytm</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="button-group">
+                <a href="DoctordetailPage6.html" class="cancel">Cancel</a>
+                <a href="DoctorVideoScreenPage9.html" class="pay-now">Pay Now</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

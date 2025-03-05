@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Test Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .info {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info strong {
+            color: #333;
+        }
+
+        .test-results {
+            margin-top: 20px;
+            padding: 10px;
+            border-top: 2px solid #007bff;
+        }
+
+        .test-results table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .test-results th, .test-results td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .test-results th {
+            background: #007bff;
+            color: white;
+        }
+
+        .report-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .report-images img {
+            width: 150px;
+            height: 150px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .report-images img:hover {
+            transform: scale(1.1);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .back-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Blood Test Report</h1>
+        
+        <p class="info"><strong>Patient Name:</strong> John Doe</p>
+        <p class="info"><strong>Doctor:</strong> Dr. Smith (Pathology)</p>
+        <p class="info"><strong>Date of Test:</strong> March 5, 2025</p>
+        
+        <div class="test-results">
+            <h2>Test Results</h2>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Result</th>
+                    <th>Normal Range</th>
+                </tr>
+                <tr>
+                    <td>Hemoglobin</td>
+                    <td>14.2 g/dL</td>
+                    <td>13.5 - 17.5 g/dL</td>
+                </tr>
+                <tr>
+                    <td>WBC Count</td>
+                    <td>6,500 /µL</td>
+                    <td>4,500 - 11,000 /µL</td>
+                </tr>
+                <tr>
+                    <td>Platelet Count</td>
+                    <td>250,000 /µL</td>
+                    <td>150,000 - 400,000 /µL</td>
+                </tr>
+                <tr>
+                    <td>Glucose</td>
+                    <td>110 mg/dL</td>
+                    <td>70 - 140 mg/dL</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Related Images</h2>
+            <div class="report-images">
+                <div>
+                    <img src="PhotosAll/blood-test-1.png" alt="Blood Test Image 1">
+                    <p style="text-align: center; font-weight: bold; color: #333;">Microscopic View</p>
+                </div>
+                <div>
+                    <img src="PhotosAll/blood-test-2.png" alt="Blood Test Image 2">
+                    <p style="text-align: center; font-weight: bold; color: #333;">Cell Count Analysis</p>
+                </div>
+                <div>
+                    <img src="PhotosAll/blood-test-3.png" alt="Blood Test Image 3">
+                    <p style="text-align: center; font-weight: bold; color: #333;">Report Summary</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="PatientReports4.html" class="back-btn">Back to Patient Report</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Registration</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #4A90E2, #A569BD);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Logo */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .registration-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .registration-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0073e6;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0073e6;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        .form-group input[type="file"] {
+            border: none;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .form-actions button {
+            background-color: #0073e6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-actions button:hover {
+            background-color: #005bb5;
+        }
+
+        .terms {
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .row .form-group {
+            flex: 1;
+        }
+
+
+        .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #2b88eb; /* Button color */
+        color: #fff; /* Text color */
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        }
+
+        .btn:hover {
+        background-color: #0056b3; /* Hover color */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="registration-container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+        <img src="PhotosAll/doctorlogo.png" alt="Web Logo">
+    </div>
+
+    <!-- Heading -->
+    <h2>Doctor Registration</h2>
+    <form>
+        <!-- Full Name -->
+        <div class="row">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+            </div>
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+
+        <!-- Profile Picture -->
+        <div class="form-group">
+            <label for="profile-picture">Profile Picture</label>
+            <input type="file" id="profile-picture" name="profile-picture" accept=".jpg, .png" required>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="row">
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Residential Address</label>
+            <textarea id="address" name="address" placeholder="Enter your residential address" required></textarea>
+        </div>
+
+        <!-- Medical License -->
+        <div class="form-group">
+            <label for="license-number">Medical License Number</label>
+            <input type="text" id="license-number" name="license-number" placeholder="Enter your license number" required>
+        </div>
+
+        <!-- Specialization -->
+        <div class="form-group">
+            <label for="specialization">Specialization</label>
+            <select id="specialization" name="specialization" required>
+                <option value="">Select your specialization</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="Orthopedist">Orthopedist</option>
+                <option value="Neurologist">Neurologist</option>
+                <option value="Pediatrician">Pediatrician</option>
+                <option value="Plastic Surgeon">Plastic Surgeon</option>
+                <option value="General Surgeon">General Surgeon</option>
+                <option value="Dermatologist">Dermatologist</option>
+                <option value="Oncologist">Oncologist</option>
+                <option value="Psychiatrist">Psychiatrist</option>
+                <option value="Gynecologist">Gynecologist</option>
+                <option value="Urologist">Urologist</option>
+                <option value="Pulmonologist">Pulmonologist</option>
+                <option value="Gastroenterologist">Gastroenterologist</option>
+                <option value="Ophthalmologist">Ophthalmologist</option>
+                <option value="Endocrinologist">Endocrinologist</option>
+                <option value="Hematologist">Hematologist</option>
+                <option value="Rheumatologist">Rheumatologist</option>
+                <option value="Anesthesiologist">Anesthesiologist</option>
+                <option value="Nephrologist">Nephrologist</option>
+                <option value="Radiologist">Radiologist</option>
+                <option value="Pathologist">Pathologist</option>
+                <option value="Family Medicine">Family Medicine</option>
+                <option value="Emergency Medicine">Emergency Medicine</option>
+                <option value="Immunologist">Immunologist</option>
+                <option value="Infectious Disease Specialist">Infectious Disease Specialist</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+        
+
+        <!-- Experience -->
+        <div class="form-group">
+            <label for="experience">Years of Experience</label>
+            <input type="number" id="experience" name="experience" placeholder="Enter your years of experience" required>
+        </div>
+
+        <!-- Workplace -->
+        <div class="form-group">
+            <label for="workplace">Current Workplace</label>
+            <input type="text" id="workplace" name="workplace" placeholder="Enter clinic or hospital name" required>
+        </div>
+
+        <!-- Consultation Fees -->
+        <div class="form-group">
+            <label for="fees">Consultation Fees</label>
+            <input type="number" id="fees" name="fees" placeholder="Enter your consultation fees" required>
+        </div>
+
+        <!-- Availability -->
+        <div class="form-group">
+            <label for="availability">Availability/Working Hours</label>
+            <input type="text" id="availability" name="availability" placeholder="e.g., Mon-Fri, 10AM - 4PM" required>
+        </div>
+
+        <!-- Degree -->
+        <div class="form-group">
+            <label for="degree">Degree(s)</label>
+            <input type="text" id="degree" name="degree" placeholder="e.g., MBBS, MD" required>
+        </div>
+
+        <!-- University and Year -->
+        <div class="row">
+            <div class="form-group">
+                <label for="university">University/Institution Name</label>
+                <input type="text" id="university" name="university" placeholder="Enter university name" required>
+            </div>
+            <div class="form-group">
+                <label for="graduation-year">Year of Graduation</label>
+                <input type="number" id="graduation-year" name="graduation-year" placeholder="e.g., 2015" required>
+            </div>
+        </div>
+
+        <!-- File Uploads -->
+        <div class="form-group">
+            <label for="medical-license">Upload Medical License</label>
+            <input type="file" id="medical-license" name="medical-license" accept=".pdf,.jpg,.png" required>
+        </div>
+        <div class="form-group">
+            <label for="degree-certificates">Upload Degree Certificates</label>
+            <input type="file" id="degree-certificates" name="degree-certificates" accept=".pdf,.jpg,.png" required>
+        </div>
+        <div class="form-group">
+            <label for="id-proof">Upload ID Proof</label>
+            <input type="file" id="id-proof" name="id-proof" accept=".pdf,.jpg,.png" required>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="form-group terms">
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                I accept the <a href="#">terms and conditions</a>.
+            </label>
+        </div>
+
+        <!-- Submit Button -->
+        <!-- <div class="form-actions">
+            <button type="submit">Register</button>
+        </div> -->
+
+        <!-- //and we styling to look like a button// -->
+        <div class="form-actions">
+            <a href="DoctorVerificationPage3.html" class="btn">Register</a>
+        </div>
+        
+    </form>
+</div>
+
+</body>
+</html>

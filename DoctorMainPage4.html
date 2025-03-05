@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Surgeons Grid</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #e3eff7);
+            padding: 20px;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+        }
+
+        
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        .search-box input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+            outline: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            background: #0073e6;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #005bb5;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            color: white;
+            text-align: center;
+        }
+
+        .card:nth-child(1) { background: #f28b82; }
+        .card:nth-child(2) { background: #fbbc04; }
+        .card:nth-child(3) { background: #34a853; }
+        .card:nth-child(4) { background: #4285f4; }
+        .card:nth-child(5) { background: #ea4335; }
+        .card:nth-child(6) { background: #ff7043; }
+        .card:nth-child(7) { background: #26c6da; }
+        .card:nth-child(8) { background: #ab47bc; }
+        .card:nth-child(9) { background: #ffee58; }
+        .card:nth-child(10) { background: #8d6e63; }
+        .card:nth-child(11) { background: #9ccc65; }
+        .card:nth-child(12) { background: #7e57c2; }
+        .card:nth-child(13) { background: #26a69a; }
+        .card:nth-child(14) { background: #5c6bc0; }
+        .card:nth-child(15) { background: #ef5350; }
+        .card:nth-child(16) { background: #fbbc04; }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 1.5px solid black;
+        }
+
+        .card-content {
+            flex: 1;
+            margin-top: -5px;
+            margin-bottom: 15px;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .card-content .speciality {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .speciality {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2); /* Matches card background */
+            color: white;
+            font-weight: bold;
+            padding: 6px 14px; /* Reduced padding for a smaller height */
+            border-radius: 5px; /* Slightly smaller rounded edges */
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            font-size: 0.85rem; /* Slightly smaller text */
+        }
+
+        .speciality:hover {
+            background: rgba(255, 255, 255, 0.4); /* Subtle hover effect */
+            transform: scale(1.05);
+        }
+
+
+        /* ======footer====== */
+
+        .hospital-footer {
+            background: #052c52; /* Professional dark blue */
+            color: white;
+            padding-top: 40px;
+            font-family: Arial, sans-serif;
+            margin-top: -25px;
+            border-radius: 10px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 50px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f8b400;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .footer-section p,
+        .footer-section ul {
+            font-size: 0.95rem;
+            color: #d4d4d4;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #d4d4d4;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #f8b400; /* Highlight effect */
+        }
+
+        .contact p {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact i {
+            margin-right: 10px;
+            color: #f8b400;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            color: white;
+            display: flex;
+            padding: 4px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-right: 10px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #f8b400;
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 5px;
+            background: #041d37;
+            font-size: 0.9rem;
+            color: #d4d4d4;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="p-3 mb-3 border-bottom sticky-top bg-white shadow-sm" style="border-radius: 10px;">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="DoctorPersInfoPage10.html" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+                    <img src="PhotosAll/doctorlogo.png" alt="Your Brand Logo" width="40" height="40" class="me-2" style="border: 1.5px solid black; border-radius: 50%;">
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
+                    <li><a href="DoctorMyHospital.html" class="nav-link px-2 link-body-emphasis">My Hospital</a></li>
+                    <li><a href="DoctorViewPatient.html" class="nav-link px-2 link-body-emphasis">My Patients</a></li>
+                    <li><a href="#" class="nav-link px-2 link-body-emphasis">Reports</a></li>
+                </ul>
+    
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </form>
+    
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="PhotosAll/man.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small">
+                        <li><a class="dropdown-item" href="#">User name</a></li>
+                        <li><a class="dropdown-item" href="DoctorSetting.html">Settings</a></li>
+                        <li><a class="dropdown-item" href="DoctorPersInfoPage10.html">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="DoctorLoginPage1.html">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main content -->
+    <div class="header">
+        <h1>Meet Our Expert Surgeons</h1>
+        <p>Specialists in different fields of surgery to provide the best care for critical cases.</p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search by location">
+        <input type="text" placeholder="Search specialist">
+        <button>Search</button>
+    </div>
+
+    <div class="grid-container">
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Trauma Surgery</h3>
+                <p>Expert in trauma and emergency surgery with 10+ years of experience.</p>
+                <a href="DoctorslistPage5.html" class="speciality">View Trauma Surgeons</a>
+            </div>
+        </div>
+        
+        <!-- ---------- -->
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Cardiovascular Surgery</h3>
+                <p>Specialist in cardiovascular surgeries, saving countless lives.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Cardiovascular Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Neurological Surgery</h3>
+                <p>Renowned for expertise in neurological surgery and patient care.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Neurological Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Orthopedic Surgery</h3>
+                <p>Highly experienced in orthopedic surgeries with a passion for healing.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Orthopedic Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Pediatric Surgery</h3>
+                <p>Specialist in pediatric surgery, dedicated to improving children's health.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Pediatric Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Laparoscopic Surgery</h3>
+                <p>Renowned for minimally invasive laparoscopic surgeries.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Laparoscopic Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Plastic Surgery</h3>
+                <p>Highly skilled in plastic and reconstructive surgeries.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Plastic Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Dental Surgery</h3>
+                <p>Specialist in dental and maxillofacial surgeries.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Dental Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Transplant Surgery</h3>
+                <p>Expert in organ transplantation and critical care surgeries.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Transplant Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>General Surgery</h3>
+                <p>Specialist in general surgeries with a focus on patient well-being.</p>
+                <a href="DoctorslistPage5.html" class="speciality">General Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Bariatric Surgery</h3>
+                <p>Renowned for expertise in bariatric surgeries for weight management.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Bariatric Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Brain Surgery</h3>
+                <p>Experienced in advanced brain surgeries and neuroscience research.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Brain Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Vascular Surgery</h3>
+                <p>Renowned for precision in vascular and vein surgeries.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Vascular Surgery</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Radiology</h3>
+                <p>Expert in trauma and emergency surgery with 10+ years of experience.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Radiologist</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Cardiology</h3>
+                <p>Specialist in interventional cardiology and heart health.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Cardiology</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="PhotosAll/doctorlogo.png" alt="Doctor">
+            <div class="card-content">
+                <h3>Cardiology</h3>
+                <p>Specialist in interventional cardiology and heart health.</p>
+                <a href="DoctorslistPage5.html" class="speciality">Cardiology</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Navbar -->
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3">
+            <a href="#" class="text-body-secondary">
+                <img src="PhotosAll/twitter.png" alt="Twitter" width="24" height="24" style="border-radius: 50%;">
+            </a>
+        </li>
+        <li class="ms-3">
+            <a href="#" class="text-body-secondary">
+                <img src="PhotosAll/instagramlogo.png" alt="Instagram" width="24" height="24" style="border-radius: 50%;">
+            </a>
+        </li>
+        <li class="ms-3">
+            <a href="#" class="text-body-secondary">
+                <img src="PhotosAll/fblogo.png" alt="Facebook" width="24" height="24" style="border-radius: 50%;">
+            </a>
+        </li>
+    </ul>
+    
+    </footer>
+
+    <!-- ==========footer============== -->
+
+    <footer class="hospital-footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p>We provide world-class medical services with expert doctors and advanced facilities to ensure your well-being.</p>
+            </div>
+    
+            <div class="footer-section quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Departments</a></li>
+                    <li><a href="#">Doctors</a></li>
+                    <li><a href="#">Appointments</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Health St, City, Country</p>
+                <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                <p><i class="fas fa-envelope"></i> contact@hospital.com</p>
+            </div>
+    
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i>Facebook</a>
+                    <a href="#"><i class="fab fa-twitter"></i>Twitter</a>
+                    <a href="#"><i class="fab fa-instagram"></i>Instagram</a>
+                    <a href="#"><i class="fab fa-linkedin"></i>Linked-In</a>
+                </div>
+            </div>
+        </div>
+    
+    </footer>
+    
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

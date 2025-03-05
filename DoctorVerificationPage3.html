@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            color: black;
+            text-decoration: none;
+        }
+
+        .verification-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .verification-card h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .verification-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .otp-input {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .otp-input input {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #fff;
+            color: black;
+            outline: none;
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, background 0.3s;
+        }
+
+        .otp-input input:focus {
+            transform: scale(1.1);
+            background: #f0f8ff;
+        }
+
+        .btn {
+            width: 80%;
+            padding: 12px;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #3d94fa, #00d2fe);
+            transform: scale(1.05);
+        }
+
+        .resend-otp {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            text-decoration: underline;
+            cursor: pointer;
+            color: black;
+            text-decoration: none;
+        }
+
+        .resend-otp:hover {
+            color: #0073e6;
+        }
+
+        .btn a{
+            text-decoration: none;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="verification-card">
+        <h1>OTP Verification</h1>
+        <p>We have sent a 4-digit OTP to your registered mobile number. Please enter it below to verify.</p>
+        <div class="otp-input">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+        </div>
+        <button class="btn"><a href="DoctorMainPage4.html">Verify</a></button>
+        <div class="resend-otp"><a href="#">Didn't receive the OTP? <span>Resend OTP</span></a></div>
+    </div>
+</body>
+</html>

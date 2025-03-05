@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Portal Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #a93aff, #00f2ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #555;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .profile-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #ddd;
+        }
+        .input-group input {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .back {
+            background: #ccc;
+            color: #333;
+        }
+        .back:hover {
+            background: #bbb;
+        }
+        .save {
+            background: #007bff;
+            color: white;
+        }
+        .save:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hospital Settings</h2>
+        
+        <!-- Profile Settings -->
+        <div class="section">
+            <h3>Profile Settings</h3>
+            <div class="profile">
+                <img src="PhotosAll/doctorlogo.png" class="profile-img" alt="Profile">
+                <div class="input-group">
+                    <input type="text" placeholder="Hospital Name">
+                    <input type="email" placeholder="Email Address">
+                </div>
+            </div>
+        </div>
+
+        <!-- General Settings -->
+        <div class="section">
+            <h3>General Settings</h3>
+            <label>Operating Hours</label>
+            <input type="text" placeholder="e.g., 9 AM - 9 PM">
+        </div>
+        
+        <!-- Notification Settings -->
+        <div class="section">
+            <h3>Notification Settings</h3>
+            <label><input type="checkbox"> Email Notifications</label>
+            <label><input type="checkbox"> SMS Alerts</label>
+        </div>
+        
+        <!-- Security Settings -->
+        <div class="section">
+            <h3>Security</h3>
+            <input type="password" placeholder="Change Password">
+        </div>
+        
+        <div class="button-group">
+            <button onclick="history.back()" class="btn back">Back</button>
+            <button class="btn save">Save Changes</button>
+        </div>
+    </div>
+</body>
+</html>

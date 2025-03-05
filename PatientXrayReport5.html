@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-ray Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #de83f0, #f12066);
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #e900dd;
+        }
+
+        .info {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .info strong {
+            color: #333;
+        }
+
+        .section {
+            margin-top: 20px;
+            padding: 10px;
+            border-top: 2px solid #e63946;
+        }
+
+        .xray-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .xray-images img {
+            width: 200px;
+            height: 200px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .xray-images img:hover {
+            transform: scale(1.1);
+        }
+
+        .back-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            background: #e63946;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>X-ray Report</h1>
+
+        <p class="info"><strong>Patient Name:</strong> John Doe</p>
+        <p class="info"><strong>Age:</strong> 45</p>
+        <p class="info"><strong>Doctor:</strong> Dr. Smith (Orthopedics)</p>
+        <p class="info"><strong>Hospital:</strong> City Hospital</p>
+        <p class="info"><strong>Date of X-ray:</strong> March 1, 2025</p>
+        <p class="info"><strong>Diagnosis:</strong> Possible Fracture in Left Arm</p>
+        <p class="info"><strong>Additional Notes:</strong> Further evaluation needed with MRI</p>
+
+        <!-- X-ray Images Section -->
+        <div class="section">
+            <h2>X-ray Images</h2>
+            <div class="xray-images">
+                <div>
+                    <img src="PhotosAll/xray1.png" alt="X-ray 1">
+                    <p style="text-align: center; font-weight: bold; color: #333;">Frontal View</p>
+                </div>
+                <div>
+                    <img src="PhotosAll/xray2.png" alt="X-ray 2">
+                    <p style="text-align: center; font-weight: bold; color: #333;">Lateral View</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor's Observations Section -->
+        <div class="section">
+            <h2>Doctor's Observations</h2>
+            <p>The X-ray reveals a potential fracture in the left radius bone. Immediate immobilization is advised, followed by an MRI for a detailed evaluation.</p>
+        </div>
+
+        <a href="PatientReports4.html" class="back-btn">Back to Records</a>
+    </div>
+</body>
+</html>

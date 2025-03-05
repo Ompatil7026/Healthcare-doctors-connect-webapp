@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .info {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info strong {
+            color: #333;
+        }
+
+        .section {
+            margin-top: 20px;
+            padding: 10px;
+            border-top: 2px solid #007bff;
+        }
+
+        .report-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .report-images img {
+            width: 150px;
+            height: 150px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .report-images img:hover {
+            transform: scale(1.1);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .back-btn:hover {
+            background: #0056b3;
+        }
+
+        .treatment-list, .appointment-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .treatment-list li, .appointment-list li {
+            background: #eef5ff;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Patient Report</h1>
+
+        <p class="info"><strong>Name:</strong> John Doe</p>
+        <p class="info"><strong>Age:</strong> 45</p>
+        <p class="info"><strong>Blood Pressure:</strong> 130/85</p>
+        <p class="info"><strong>Blood Sugar:</strong> 110 mg/dL</p>
+        <p class="info"><strong>Medications:</strong> Daily insulin, Aspirin</p>
+        <p class="info"><strong>Doctor:</strong> Dr. Smith (Cardiology)</p>
+        <p class="info"><strong>Hospital:</strong> City Hospital</p>
+        <p class="info"><strong>Diagnosis:</strong> Hypertension, Mild Diabetes</p>
+        <p class="info"><strong>Additional Notes:</strong> Monthly BP check-up required</p>
+
+        <!-- Current Treatment Section -->
+        <div class="section">
+            <h2>Current Treatment</h2>
+            <ul class="treatment-list">
+                <li><strong>Medication:</strong> Metformin (500mg) - 2 times/day</li>
+                <li><strong>BP Medicine:</strong> Amlodipine (5mg) - Once in morning</li>
+                <li><strong>Diet Plan:</strong> Low sodium, high-fiber diet</li>
+                <li><strong>Exercise:</strong> 30 min daily walking</li>
+            </ul>
+        </div>
+
+        <!-- Upcoming Appointments -->
+        <div class="section">
+            <h2>Upcoming Appointments</h2>
+            <ul class="appointment-list">
+                <li>📅 Cardiology Checkup - March 10, 2025</li>
+                <li>📅 Blood Test - March 15, 2025</li>
+                <li>📅 MRI Scan Follow-up - March 22, 2025</li>
+            </ul>
+        </div>
+
+        <!-- Reports Section -->
+        <div class="section">
+            <h2>Medical Reports</h2>
+            <div class="report-images">
+                <div>
+
+                    <a href="PatientBloodTest5.html">
+                    <img src="PhotosAll/blood-test.png" alt="Blood Report">
+                    </a>
+                    <p style="text-align: center; font-weight: bold; color: #333;">Blood Test Report</p>
+                </div>
+                <div>
+                    <a href="PatientMriReports5.html">
+                    <img src="PhotosAll/mriscan.png" alt="MRI Scan">
+                    </a>
+                    <p style="text-align: center; font-weight: bold; color: #333;">MRI Scan Report</p>
+                </div>
+                <div>
+                    <a href="PatientXrayReport5.html">
+                    <img src="PhotosAll/x-ray.png" alt="X-ray">
+                    </a>
+                    <p style="text-align: center; font-weight: bold; color: #333;">X-ray Report</p>
+                </div>
+            </div>
+        </div>
+
+
+        <a href="PatientMainPage3.html" class="back-btn">Back to Records</a>
+    </div>
+
+</body>
+</html>

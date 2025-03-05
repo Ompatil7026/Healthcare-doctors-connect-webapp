@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f7f9fc, #dce3f0);
+            padding: 20px;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .payment-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .payment-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 95%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            outline: none;
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .payment-options div {
+            text-align: center;
+        }
+
+        .payment-options img {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .payment-options img:hover {
+            transform: scale(1.1);
+        }
+
+        .payment-options span {
+            display: block;
+            margin-top: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button-group button {
+            width: 48%;
+            padding: 10px;
+            font-size: 1rem;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button-group .pay-now {
+            background: #28a745;
+        }
+
+        .button-group .pay-now:hover {
+            background: #218838;
+        }
+
+        .button-group .cancel {
+            background: #dc3545;
+        }
+
+        .button-group .cancel:hover {
+            background: #c82333;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logos img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .pay-now,.cancel {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 10px;
+            display: inline-block;
+            width: 170px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Payment Gateway</h1>
+    </div>
+
+    <div class="payment-container">
+        <h2>Complete Your Payment</h2>
+
+        <div class="logos">
+            <img src="PhotosAll/visa.png" alt="Visa">
+            <img src="PhotosAll/master.png" alt="MasterCard">
+            <img src="PhotosAll/paytm.png" alt="Paytm">
+            <img src="PhotosAll/rupayy.svg" alt="Rupay">
+        </div>
+
+        <form>
+            <div class="input-group">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" placeholder="Enter your card number">
+            </div>
+
+            <div class="input-group">
+                <label for="expiry-date">Expiry Date</label>
+                <input type="text" id="expiry-date" placeholder="MM/YY">
+            </div>
+
+            <div class="input-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" placeholder="Enter CVV">
+            </div>
+
+            <div class="payment-options">
+                <div>
+                    <img src="PhotosAll/atm-card.png" alt="Card">
+                    <span>Cards</span>
+                </div>
+                <div>
+                    <img src="PhotosAll/upi.png" alt="UPI">
+                    <span>UPI</span>
+                </div>
+                <div>
+                    <img src="PhotosAll/wallet.png" alt="Wallet">
+                    <span>Wallets</span>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <a href="DoctordetailPage6.html" class="cancel">Cancel</a>
+                <a href="DoctroUpipayPage8.html" class="pay-now">Pay Now</a>
+                <!-- <a href="PaymentPage7.html" class="action-button video-button">Connect via Video</a> -->
+            </div>
+        </form>
+    </div>
+</body>
+</html>

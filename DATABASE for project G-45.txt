@@ -1,0 +1,98 @@
+// Registration page//
+
+CREATE DATABASE doctor_registration;
+
+USE doctor_registration;
+
+CREATE TABLE doctors (
+    doctor_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    gender ENUM('male', 'female', 'other') NOT NULL,
+    dob DATE NOT NULL,
+    profile_picture VARCHAR(255),
+    phone VARCHAR(10) NOT NULL UNIQUE,
+    email VARCHAR(70) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    address TEXT NOT NULL,
+    license_number VARCHAR(50) NOT NULL UNIQUE,
+    specialization VARCHAR(100) NOT NULL,
+    experience INT NOT NULL,
+    workplace VARCHAR(100),
+    consultation_fees DECIMAL(10, 2) NOT NULL,
+    availability VARCHAR(100) NOT NULL,
+    degree VARCHAR(255) NOT NULL,
+    university VARCHAR(100) NOT NULL,
+    graduation_year INT(4) NOT NULL,
+    medical_license_file VARCHAR(255),
+    degree_certificates_file VARCHAR(255),
+    id_proof_file VARCHAR(255),
+    terms_accepted BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+SELECT * from doctor_registration;
+
+
+
+
+
+// Login page//
+
+
+CREATE DATABASE IF NOT EXISTS doctor_portal;
+
+USE doctor_portal;
+
+CREATE TABLE IF NOT EXISTS users(
+user_id INT AUTO_INCREMENT PRIMARY KEY,  
+email VARCHAR(255) NOT NULL UNIQUE,      
+password VARCHAR(255) NOT NULL, 
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+SELECT * FROM users;
+
+
+
+
+// OTP verification //
+
+
+
+// Payment gateway //
+// cards //
+
+CREATE DATABASE IF NOT EXISTS payment_portal;
+
+USE payment_portal;
+
+CREATE TABLE IF NOT EXISTS payment_transactions (
+card_number VARCHAR(16) NOT NULL,
+expiry_date VARCHAR(5) NOT NULL,
+cvv CHAR(3) NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+
+
+// UPI payments//
+
+CREATE DATABASE IF NOT EXISTS UpiPaymentDB;
+
+USE UpiPaymentDB;
+
+CREATE TABLE UpiPayments (
+payment_id INT AUTO_INCREMENT PRIMARY KEY,
+user_name VARCHAR(100) NOT NULL,
+upi_id VARCHAR(100) NOT NULL,
+amount DECIMAL(10, 2) NOT NULL,
+upi_provider VARCHAR(50) NOT NULL,
+transaction_status ENUM('Pending', 'Completed', 'Failed') DEFAULT 'Pending',
+   );
+
+
+
+
+
